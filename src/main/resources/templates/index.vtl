@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1>Your Personal Dictionary!</h1>
+</div>
+<h2>create your own dictionary in order to keep track of all of your favorite words you can never remember the definition of.</h2>
+
+#if($words)
+  <ul>
+    #foreach($word in $words)
+      <a href="/word/$word.getId()/definition"><li><h4>$word.name()<h4></li><a>
+    #end
+  </ul>
+#end
+
+<h5><a href="/word-form">Add A Word</a></h5>
