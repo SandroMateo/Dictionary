@@ -1,10 +1,11 @@
 <div class="jumbotron">
   <h1>$word.getName()</h1>
 </div>
-
-#foreach($definition in $$word.getDefinitions)
-  <h2>Definition $word.getDefinitions.indexOf($definition)</h2>
-  <p>$definition.getName()</p>
+<h2>Definitions:</h2>
+<ol>
+#foreach($definition in $word.getDefinitions())
+  <li>$definition.getDescription()</li>
 #end
 
 <h4><a href="/word/$word.getId()/definition/new">Add A New Definition</a></h4>
+<h4><a href="/">View All Words</a></h4>
