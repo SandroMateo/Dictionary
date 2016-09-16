@@ -21,6 +21,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/word/:id/definition", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Word word = Definition.find(Integer.parseInt(request.params(":id"));
+      model.put("word", word);
+      model.put("template", "templates/word-definitions.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     post("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Definition newDefinition = new Definition(request.queryParams("description"));
